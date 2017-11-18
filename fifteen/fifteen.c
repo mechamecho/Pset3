@@ -165,14 +165,24 @@ void init(void)
             if(d%2==0&&currentNumber==1)
             {
                 //swaps 1 and 2 if array dimensions are even, to make the game winnable
+                //CurrentNumber needs to stay one, to avoid the current index to be set to currentNumber, after
+                //setting it to 2, added an else statement.
+                //we want the currentNumber 1, to be decreased by 1, just like any other currentNumber value, so
+                //I put it at the bottom.
                 int temp=2;
                 board[i][j-1]=1;
                 board[i][j]=temp;
 
+            }
+            else
+            {
+                board[i][j]=currentNumber;
 
             }
-            board[i][j]=currentNumber;
+
+
             currentNumber--;
+
 
 
 
@@ -190,7 +200,8 @@ void draw(void)
     // TODO
         for(int i=0; i<d; i++)
     {
-        printf("\n==================");
+        int boarderLength=d+15;
+        printf("\n%.*s", boarderLength , "===========================================");
         // for(int i=0; i<=d; i++)
         // {
         //     printf("=");
